@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SocialBoost</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #060606 0%, #0b0b0b 40%, #111 100%);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(8, 8, 8, 0.82);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #ff2d55;
+    }
+
+    .menu {
+      display: flex;
+      gap: 28px;
+      font-size: 0.95rem;
+      color: #d6d6d6;
+    }
+
+    .menu a:hover {
+      color: #fff;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff2d55, #ff5f6d);
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(255, 45, 85, 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 35px rgba(255, 45, 85, 0.34);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero {
+      padding: 90px 0 55px;
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #d7d7d7;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 1.02;
+      font-weight: 800;
+      max-width: 760px;
+    }
+
+    h1 span {
+      color: #ff4d68;
+    }
+
+    .hero p {
+      margin-top: 18px;
+      max-width: 660px;
+      color: #b8b8b8;
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -50px -50px auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255,45,85,0.32), transparent 65%);
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 14px;
+    }
+
+    .metric small {
+      color: #9f9f9f;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+    }
+
+    .metric strong {
+      font-size: 1.9rem;
+      font-weight: 800;
+    }
+
+    .bars {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar-line span {
+      display: block;
+      margin-bottom: 6px;
+      color: #cfcfcf;
+      font-size: 0.88rem;
+    }
+
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff2d55, #ff8a5b);
+    }
+
+    section {
+      padding: 38px 0;
+    }
+
+    .section-title {
+      margin-bottom: 24px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.7rem, 3vw, 2.7rem);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #b2b2b2;
+      max-width: 670px;
+      line-height: 1.7;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #b8b8b8;
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    .price {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 14px;
+    }
+
+    .price strong {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .price span {
+      color: #ababab;
+      font-size: 0.9rem;
+    }
+
+    .features {
+      display: grid;
+      gap: 10px;
+      color: #d4d4d4;
+      font-size: 0.93rem;
+      margin: 18px 0 22px;
+    }
+
+    .features div {
+      padding: 11px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .highlight {
+      border: 1px solid rgba(255, 77, 104, 0.45);
+      box-shadow: 0 18px 40px rgba(255, 45, 85, 0.12);
+      position: relative;
+    }
+
+    .highlight::after {
+      content: "Mais pedido";
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-size: 0.75rem;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,45,85,0.16);
+      color: #ffd3db;
+      border: 1px solid rgba(255,45,85,0.25);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ff2d55, #ff734d);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      padding: 18px 20px;
+    }
+
+    .faq-item h4 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .faq-item p {
+      color: #b6b6b6;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .cta {
+      padding: 26px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255,45,85,0.18), rgba(255,122,89,0.09));
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 30px 0 60px;
+    }
+
+    .cta h3 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .cta p {
+      color: #d0d0d0;
+      line-height: 1.7;
+      max-width: 700px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 24px 0 40px;
+      color: #9d9d9d;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-wrap,
+      .grid-3,
+      .steps,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-wrap {
+        display: grid;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .cta {
+        display: block;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 60px;
+      }
+
+      h1 {
+        line-height: 1.08;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#inicio" class="logo">Social<span>Boost</span></a>
+      <nav class="menu">
+        <a href="#servicos">Serviços</a>
+        <a href="#planos">Planos</a>
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#planos" class="btn btn-primary">Começar</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-wrap">
+        <div>
+          <div class="tag">Estratégia real para Instagram e TikTok</div>
+          <h1>Faça seu perfil crescer com <span>mais alcance</span>, presença e resultado.</h1>
+          <p>
+            Um site moderno para vender serviços de crescimento digital de forma profissional: otimização de perfil, estratégia de conteúdo, análise de conta e impulsionamento de presença social.
+          </p>
+          <div class="hero-actions">
+            <a href="#planos" class="btn btn-primary">Ver planos</a>
+            <a href="#servicos" class="btn btn-secondary">Explorar serviços</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="metric">
+            <small>Performance de perfil</small>
+            <strong>+182%</strong>
+          </div>
+          <div class="metric">
+            <small>Melhoria em alcance</small>
+            <strong>+74%</strong>
+          </div>
+          <div class="bars">
+            <div class="bar-line">
+              <span>Bio e posicionamento</span>
+              <div class="bar"><i style="width: 92%"></i></div>
+            </div>
+            <div class="bar-line">
+              <span>Estratégia de conteúdo</span>
+              <div class="bar"><i style="width: 84%"></i></div>
+            </div>
+            <div class="bar-line">
+              <span>Potencial de retenção</span>
+              <div class="bar"><i style="width: 78%"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <div class="section-title">
+          <h2>Serviços principais</h2>
+          <p>Estrutura pronta para você adaptar com seu nome, seus preços e sua forma de atendimento.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Otimização de Perfil</h3>
+            <p>Melhoria de bio, nome, destaques, identidade visual e posicionamento para deixar o perfil mais forte e mais profissional.</p>
+          </div>
+          <div class="card">
+            <h3>Plano de Conteúdo</h3>
+            <p>Ideias de posts, vídeos curtos, calendário de publicação e linha criativa para aumentar consistência e retenção.</p>
+          </div>
+          <div class="card">
+            <h3>Análise de Conta</h3>
+            <p>Leitura estratégica do perfil com pontos fortes, pontos fracos e ajustes para melhorar presença e conversão.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="planos">
+      <div class="container">
+        <div class="section-title">
+          <h2>Planos prontos</h2>
+          <p>Você pode trocar os nomes, os valores e o texto. A base do site já está feita para ficar com cara profissional.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="price">
+              <div>
+                <span>Plano Start</span>
+                <strong>R$ 9,90</strong>
+              </div>
+              <span>entrada</span>
+            </div>
+            <p>Para quem quer dar os primeiros ajustes e deixar o perfil mais organizado.</p>
+            <div class="features">
+              <div>Bio otimizada</div>
+              <div>Ajuste visual do perfil</div>
+              <div>Dicas iniciais de conteúdo</div>
+            </div>
+            <a href="#contato" class="btn btn-secondary">Escolher plano</a>
+          </div>
+
+          <div class="card highlight">
+            <div class="price">
+              <div>
+                <span>Plano Pro</span>
+                <strong>R$ 19,90</strong>
+              </div>
+              <span>mais forte</span>
+            </div>
+            <p>Combina análise, posicionamento e direcionamento de conteúdo para crescer com mais consistência.</p>
+            <div class="features">
+              <div>Análise completa do perfil</div>
+              <div>Estratégia para Instagram ou TikTok</div>
+              <div>Ideias de conteúdo com direcionamento</div>
+            </div>
+            <a href="#contato" class="btn btn-primary">Escolher plano</a>
+          </div>
+
+          <div class="card">
+            <div class="price">
+              <div>
+                <span>Plano Elite</span>
+                <strong>R$ 29,90</strong>
+              </div>
+              <span>completo</span>
+            </div>
+            <p>Voltado para quem quer um perfil mais forte, com aparência profissional e plano mais estruturado.</p>
+            <div class="features">
+              <div>Consultoria personalizada</div>
+              <div>Calendário estratégico</div>
+              <div>Melhorias visuais e criativas</div>
+            </div>
+            <a href="#contato" class="btn btn-secondary">Escolher plano</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona">
+      <div class="container">
+        <div class="section-title">
+          <h2>Como funciona</h2>
+          <p>Fluxo simples para você usar no site e também no atendimento pelo WhatsApp ou Instagram.</p>
+        </div>
+
+        <div class="steps">
+          <div class="card">
+            <div class="step-number">01</div>
+            <h3>Escolha o plano</h3>
+            <p>O cliente entra no site, vê os serviços e escolhe o pacote ideal.</p>
+          </div>
+          <div class="card">
+            <div class="step-number">02</div>
+            <h3>Envio do perfil</h3>
+            <p>Depois do pagamento, ele envia o @ do Instagram ou TikTok para análise.</p>
+          </div>
+          <div class="card">
+            <div class="step-number">03</div>
+            <h3>Execução</h3>
+            <p>Você entrega a otimização, as orientações e o plano estratégico.</p>
+          </div>
+          <div class="card">
+            <div class="step-number">04</div>
+            <h3>Resultado</h3>
+            <p>O cliente sai com perfil melhor, mais profissional e pronto para crescer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-title">
+          <h2>Perguntas frequentes</h2>
+          <p>Área pronta para transmitir confiança e responder o básico antes do cliente chamar.</p>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item">
+            <h4>O serviço funciona para Instagram e TikTok?</h4>
+            <p>Sim. A estrutura pode ser ajustada para uma plataforma específica ou para as duas.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Preciso passar minha senha?</h4>
+            <p>Não. O ideal é trabalhar com análise, orientação e otimização sem acesso sensível à conta.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Em quanto tempo recebo?</h4>
+            <p>Você pode editar essa parte com seu próprio prazo, como por exemplo: atendimento em até 24 horas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h3>Pronto para vender?</h3>
+            <p>Esse modelo já serve como base inicial. Agora é só trocar nome, valores, botão de contato e publicar no GitHub Pages ou na hospedagem que você quiser.</p>
+          </div>
+          <a href="https://wa.me/5500000000000" class="btn btn-primary">Falar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      SocialBoost © 2026 — Site modelo para serviços de crescimento digital.
+    </div>
+  </footer>
+</body>
+</html>

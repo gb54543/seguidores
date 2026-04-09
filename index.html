@@ -417,6 +417,98 @@
         width: 100%;
       }
     }
+    .planos-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.plano-card {
+  width: 320px;
+  padding: 28px;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* DARK */
+.plano-card.dark {
+  background: linear-gradient(180deg, #0c0f17, #141923);
+  color: #fff;
+}
+
+/* LIGHT */
+.plano-card.light {
+  background: linear-gradient(180deg, #4a4f57, #2f343c);
+  color: #fff;
+}
+
+/* TEXTOS */
+.plano-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.plano-card p {
+  color: #cfcfcf;
+  margin-bottom: 15px;
+}
+
+.preco {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+.preco span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #aaa;
+}
+
+.preco-mes {
+  color: #cfcfcf;
+  margin-bottom: 5px;
+}
+
+.inclui {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* LISTA */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+  color: #e4e4e4;
+}
+
+/* BOTÕES */
+.btn-dark {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #555;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-light {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #e5e5e5;
+  color: #000;
+  cursor: pointer;
+}
   </style>
 </head>
 <body>

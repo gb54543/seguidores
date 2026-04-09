@@ -768,6 +768,207 @@ ul li {
     padding: 40px 22px;
   }
 }
+    .pricing-new {
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(6,8,14,0.98) 0%, rgba(7,10,18,1) 100%);
+}
+
+.pricing-new::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -35deg,
+    rgba(255,255,255,0.03) 0px,
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px,
+    transparent 9px
+  );
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.pricing-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 58px;
+}
+
+.pricing-header h2 {
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  font-weight: 800;
+  color: #f2f4ff;
+  margin-bottom: 14px;
+  line-height: 1.05;
+}
+
+.pricing-header p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #d7dcea;
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+
+.pricing-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: stretch;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  position: relative;
+  border-radius: 22px;
+  padding: 34px 30px 30px;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.pricing-card.dark {
+  background: linear-gradient(180deg, rgba(14,19,31,0.98), rgba(19,25,39,0.98));
+}
+
+.pricing-card.featured {
+  background: linear-gradient(180deg, rgba(91,97,109,0.98), rgba(70,75,85,0.98));
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2f6df6;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 10px 25px rgba(47,109,246,0.25);
+}
+
+.pricing-card h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 14px;
+  margin-top: 6px;
+}
+
+.pricing-desc {
+  text-align: center;
+  color: #d7dcea;
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+
+.pricing-month {
+  text-align: center;
+  color: #d8dbe3;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.pricing-price {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.pricing-price strong {
+  font-size: 3.2rem;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.pricing-price span {
+  font-size: 1rem;
+  color: #dadde6;
+  margin-left: 4px;
+}
+
+.pricing-includes {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 18px;
+}
+
+.pricing-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+  display: grid;
+  gap: 14px;
+  color: #f1f3f8;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.pricing-list li {
+  display: block;
+}
+
+.pricing-btn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 58px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.pricing-btn-dark {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+.pricing-btn-dark:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.pricing-btn-light {
+  background: #f1f1f1;
+  color: #111;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.pricing-btn-light:hover {
+  background: #ffffff;
+}
+
+@media (max-width: 1100px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+
+  .pricing-card {
+    min-height: auto;
+  }
+
+  .pricing-badge {
+    top: 16px;
+  }
+}
   </style>
 </head>
 <body>
@@ -913,82 +1114,85 @@ ul li {
   </div>
         </section>
     
-<section id="planos">
+<section id="planos" class="pricing-new">
   <div class="container">
-    <div class="section-title">
-      <h2>Planos de Otimização</h2>
-      <p>Escolha o plano ideal para melhorar o desempenho do seu PC, com opções que atendem desde ajustes básicos até otimização completa para jogos competitivos.</p>
+    <div class="pricing-header">
+      <h2>Escolha Seu Plano</h2>
+      <p>Selecione o plano ideal para maximizar o desempenho do seu computador</p>
     </div>
 
-    <div class="grid-3">
-      <!-- SIMPLES -->
-      <div class="card">
-        <div class="price">
-          <div>
-            <span>Simples</span>
-            <strong>R$ 9,90</strong>
-          </div>
-          <span>único</span>
+    <div class="pricing-grid">
+      <!-- MENSAL -->
+      <div class="pricing-card dark">
+        <h3>Mensal</h3>
+        <p class="pricing-desc">Otimização completa por mês</p>
+
+        <div class="pricing-price">
+          <strong>R$30,00</strong><span>/mês</span>
         </div>
-        <p>Otimização única para quem quer melhorar o desempenho do PC de forma rápida e direta.</p>
-        <div class="features">
-          <div>✓ Aumento de FPS</div>
-          <div>✓ Redução de travamentos</div>
-          <div>✓ Ajustes básicos no sistema</div>
-          <div>✓ Melhoria de desempenho geral</div>
-        </div>
-        <a href="#contato" class="btn btn-secondary">Escolher plano</a>
+
+        <p class="pricing-includes">Inclui:</p>
+
+        <ul class="pricing-list">
+          <li>✓ Aumento significativo de FPS</li>
+          <li>✓ Redução de input lag</li>
+          <li>✓ Eliminação de travadas</li>
+          <li>✓ Maior estabilidade do sistema</li>
+          <li>✓ Otimização completa do Windows</li>
+          <li>✓ Suporte</li>
+        </ul>
+
+        <a href="#contato" class="pricing-btn pricing-btn-dark">Comprar Agora →</a>
       </div>
 
-      <!-- MENSAL -->
-  <div class="plano-card dark">
-    <h2>Mensal</h2>
-    <p>Otimização completa por mês</p>
+      <!-- ANUAL -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Melhor Custo-Benefício</div>
 
-    <div class="preco">
-      <strong>R$30,00</strong><span>/mês</span>
+        <h3>1 Ano</h3>
+        <p class="pricing-desc">Otimização completa por 1 ano</p>
+
+        <div class="pricing-month">R$10,42/mês</div>
+
+        <div class="pricing-price">
+          <strong>R$125,00</strong><span>/ano</span>
+        </div>
+
+        <p class="pricing-includes">Inclui:</p>
+
+        <ul class="pricing-list">
+          <li>✓ Tudo do plano mensal</li>
+          <li>✓ 2 meses grátis inclusos</li>
+          <li>✓ Prioridade máxima no suporte</li>
+          <li>✓ Melhor custo-benefício</li>
+        </ul>
+
+        <a href="#contato" class="pricing-btn pricing-btn-light">Comprar Agora →</a>
+      </div>
+
+      <!-- SIMPLES -->
+      <div class="pricing-card dark">
+        <h3>Simples</h3>
+        <p class="pricing-desc">Otimização única</p>
+
+        <div class="pricing-price">
+          <strong>R$9,90</strong><span>/único</span>
+        </div>
+
+        <p class="pricing-includes">Inclui:</p>
+
+        <ul class="pricing-list">
+          <li>✓ Aumento de FPS</li>
+          <li>✓ Redução de travamentos</li>
+          <li>✓ Ajustes básicos no sistema</li>
+          <li>✓ Melhoria de desempenho geral</li>
+        </ul>
+
+        <a href="#contato" class="pricing-btn pricing-btn-dark">Comprar Agora →</a>
+      </div>
     </div>
-
-    <p class="inclui">Inclui:</p>
-
-    <ul>
-      <li>✓ Aumento significativo de FPS</li>
-      <li>✓ Redução de input lag</li>
-      <li>✓ Eliminação de travadas</li>
-      <li>✓ Maior estabilidade do sistema</li>
-      <li>✓ Otimização completa do Windows</li>
-      <li>✓ Suporte</li>
-    </ul>
-
-    <button class="btn-dark">Comprar Agora →</button>
   </div>
-
-
-  <!-- ANUAL -->
-  <div class="plano-card light">
-    <h2>1 Ano</h2>
-    <p>Otimização completa por 1 ano</p>
-
-    <div class="preco-mes">R$10,42/mês</div>
-
-    <div class="preco">
-      <strong>R$125,00</strong><span>/ano</span>
-    </div>
-
-    <p class="inclui">Inclui:</p>
-
-    <ul>
-      <li>✓ Tudo do plano mensal</li>
-      <li>✓ 2 meses grátis inclusos</li>
-      <li>✓ Prioridade máxima no suporte</li>
-      <li>✓ Melhor custo-benefício</li>
-    </ul>
-
-    <button class="btn-light">Comprar Agora →</button>
-  </div>
-
-</div>
-  </div>
+</section>
 </section>
 
     <section id="como-funciona">
